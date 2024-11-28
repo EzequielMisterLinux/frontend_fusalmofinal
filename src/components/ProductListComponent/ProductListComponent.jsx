@@ -170,10 +170,10 @@ const ProductListComponent = () => {
               <Td>{product.brand}</Td>
               <Td>${product.price}</Td>
               <Td>
-                <img src={`http://localhost:3000${product.image}`} alt={product.name} tw="w-36 h-16 object-cover" />
+                <img src={`https://backendfusalmofinal-production.up.railway.app${product.image}`} alt={product.name} tw="w-36 h-16 object-cover" />
                 <button 
                   tw="bg-[#077F8C] text-white px-2 py-1 rounded mt-2 w-full"
-                  onClick={() => openImageModal(`http://localhost:3000${product.image}`)}
+                  onClick={() => openImageModal(`https://backendfusalmofinal-production.up.railway.app${product.image}`)}
                 >
                   Ver
                 </button>

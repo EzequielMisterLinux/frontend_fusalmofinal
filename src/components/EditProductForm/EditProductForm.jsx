@@ -205,7 +205,7 @@ export const EditProductForm = ({productId}) => {
       </form>
       <div tw="flex flex-col items-center gap-2 justify-center">
         {
-          !showInputImage && <div tw="w-[300px]"><img width="400px" tw="object-contain" src={`http://localhost:3000${updateProduct.image}`} alt="Imagen del producto" /></div>
+          !showInputImage && <div tw="w-[300px]"><img width="400px" tw="object-contain" src={`https://backendfusalmofinal-production.up.railway.app${updateProduct.image}`} alt="Imagen del producto" /></div>
         }
         {
           showInputImage && 
