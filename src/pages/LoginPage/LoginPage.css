@@ -1,0 +1,19 @@
+.bodyLogin {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(./Assets/fondo.jpg);
+}
+
+.wrapper {
+    width: 420px;
+    background: #042F40;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
