@@ -32,7 +32,7 @@ const CreateUserModal = ({ setIsModalOpen, onClose }) => {
         setError('');
         setSuccess('');
         try {
-            const response = await axios.post('https://absolutesystemfusalmoprojects.netlify.app/api/userregister', formData);
+            const response = await axios.post(`${import.meta.VITE_URL}/userregister`, formData);
 
             if (response.data.token) {
                 setSuccess('Usuario registrado exitosamente.');
