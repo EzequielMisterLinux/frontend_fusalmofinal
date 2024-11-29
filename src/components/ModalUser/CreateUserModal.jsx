@@ -3,7 +3,6 @@ import tw from 'twin.macro';
 import { FaUserAlt, FaLock, FaPhone, FaIdCard, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 const CreateUserModal = ({ setIsModalOpen, onClose }) => {
     const [formData, setFormData] = useState({
@@ -33,14 +32,9 @@ const CreateUserModal = ({ setIsModalOpen, onClose }) => {
         setError('');
         setSuccess('');
         try {
-            const response = await axios.post('https://absolutesystemfusalmoprojects.netlify.app/api/userregister', formData, {
-                headers: {
-                    'Authorization': `Bearer ${Cookies.get('token')}`
-                }
-            });
+            const response = await axios.post('https://absolutesystemfusalmoprojects.netlify.app/api/userregister', formData);
 
             if (response.data.token) {
-                Cookies.set('token', response.data.token, { path: '/' });
                 setSuccess('Usuario registrado exitosamente.');
                 setFormData({
                     name: '',
