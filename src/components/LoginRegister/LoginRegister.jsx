@@ -3,9 +3,7 @@ import { FaUserAlt, FaLock, FaPhone } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { useState } from 'react';
 import axios from 'axios';
-import Cookies from 'js-cookie'; 
 
-axios.defaults.withCredentials = true;
 const urlogin = import.meta.env.VITE_URL;
 
 const LoginRegister = () => {
@@ -35,14 +33,9 @@ const LoginRegister = () => {
         setError('');
         setSuccess('');
         try {
-            const response = await axios.post(`${urlogin}/userregister`, formData, {
-                headers: {
-                    'Authorization': `Bearer ${Cookies.get('token')}` 
-                }
-            });
-            
-            if (response.data.token) {
-                Cookies.set('token', response.data.token, { path: '/' });
+            const response = await axios.post(`${urlogin}/userregister`, formData);
+
+            if (response.status === 200) {
                 setSuccess('Usuario registrado exitosamente.');
                 setFormData({
                     name: '',
@@ -54,10 +47,10 @@ const LoginRegister = () => {
                     passw: ''
                 });
             } else {
-                throw new Error('No se recibió token del servidor');
+                throw new Error('Error en el registro del usuario');
             }
         } catch (error) {
-            setError(error.message);
+            setError(error.response?.data?.message || 'Error al registrar el usuario');
         }
     };
 
@@ -99,7 +92,7 @@ const LoginRegister = () => {
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default LoginRegister;
