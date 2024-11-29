@@ -33,7 +33,7 @@ const LoginRegister = () => {
         setError('');
         setSuccess('');
         try {
-            const response = await axios.post(`${urlogin}/userregister`, formData);
+            const response = await axios.post("https://absolutesystemfusalmoprojects.netlify.app/api/userregister", formData);
 
             if (response.status === 200) {
                 setSuccess('Usuario registrado exitosamente.');
